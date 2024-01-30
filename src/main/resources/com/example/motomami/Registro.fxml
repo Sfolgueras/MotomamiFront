@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.motomami.Controllers.RegistroController">
+   <children>
+      <Label layoutX="168.0" layoutY="51.0" text="REGISTRO" textFill="#b01787">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <ImageView fitHeight="206.0" fitWidth="173.0" layoutX="-20.0" layoutY="-35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/2.png" />
+         </image></ImageView>
+      <TextField fx:id="idNombre" layoutX="151.0" layoutY="97.0" promptText="nombre" />
+      <TextField fx:id="idApellidos" layoutX="151.0" layoutY="145.0" promptText="apellidos" />
+      <TextField fx:id="idDNI" layoutX="152.0" layoutY="307.0" promptText="DNI" />
+      <Label layoutX="178.0" layoutY="174.0" text="Fecha Nacimiento" textFill="#db12ff" />
+      <DatePicker fx:id="idFechaNacimiento" layoutX="151.0" layoutY="195.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="idCorreo" layoutX="152.0" layoutY="391.0" promptText="correo electrónico" />
+      <PasswordField fx:id="idContra" layoutX="152.0" layoutY="432.0" promptText="contraseña" />
+      <Button fx:id="btnEntregar" layoutX="186.0" layoutY="698.0" mnemonicParsing="false" onAction="#registrarse" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: PINK; -fx-background-radius: 20;" text="REGSITRAR" textFill="#9202ff" />
+      <ChoiceBox fx:id="TipoVehiculo" layoutX="152.0" layoutY="481.0" prefWidth="150.0" />
+      <Label layoutX="190.0" layoutY="464.0" text="Tipo Vehiculo" textFill="#db12ff" />
+      <TextField fx:id="idDireccion" layoutX="152.0" layoutY="230.0" promptText="Dirección" />
+      <TextField fx:id="idTelefono" layoutX="152.0" layoutY="268.0" promptText="Teléfono" />
+      <TextField fx:id="idCarnet" layoutX="151.0" layoutY="350.0" promptText="Carnet de conducir" />
+      <TextField fx:id="idMatricula" layoutX="153.0" layoutY="521.0" promptText="matrícula" />
+      <TextField fx:id="idModelo" layoutX="153.0" layoutY="564.0" promptText="modelo" />
+      <TextField fx:id="idMarca" layoutX="152.0" layoutY="607.0" promptText="marca" />
+      <Label layoutX="215.0" layoutY="641.0" text="Sexo" textFill="#db12ff" />
+      <ChoiceBox fx:id="Sexo" layoutX="153.0" layoutY="658.0" prefWidth="150.0" />
+      <Button fx:id="btnAtras" layoutX="14.0" layoutY="698.0" mnemonicParsing="false" onAction="#irInicioSesion" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: PINK; -fx-background-radius: 20;" text="ATRÁS" textFill="#9202ff" />
+   </children>
+</AnchorPane>

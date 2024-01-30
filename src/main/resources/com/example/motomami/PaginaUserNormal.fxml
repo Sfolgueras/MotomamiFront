@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.motomami.Controllers.PaginaUserNormalController">
+   <children>
+      <Label layoutX="171.0" layoutY="14.0" text="MOTOMAMI" textFill="#b01787f0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnPartes" layoutX="175.0" layoutY="69.0" mnemonicParsing="false" onAction="#irPantallaPartes" prefHeight="80.0" prefWidth="100.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="PARTES" textFill="#9202ff" />
+      <Button layoutX="175.0" layoutY="264.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="FACTURAS" textFill="#9202ff" />
+      <Button fx:id="btnEstado" layoutX="175.0" layoutY="453.0" mnemonicParsing="false" onAction="#irPantallaEstado" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ESTADO" textFill="#9202ff" />
+      <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="393.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/images.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.motomami.Controllers.PreciosController">
+   <children>
+      <ImageView fitHeight="187.0" fitWidth="180.0" layoutX="128.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="119.0" layoutY="129.0" text="PRECIOS ANUALES" textFill="#ff2bcb">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="177.0" layoutY="210.0" text="Coche: 365€" textFill="#7111dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="180.0" layoutY="260.0" text="Moto: 125€" textFill="#7111dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="175.0" layoutY="310.0" text="Patinete: 50€" textFill="#7111dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="161.0" layoutY="160.0" text="Furgoneta: 500€" textFill="#7111dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="174.0" layoutY="360.0" text="Bicicleta: 30€" textFill="#7111dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAtras" layoutX="183.0" layoutY="410.0" mnemonicParsing="false" onAction="#irPaginaInicio" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ATRÁS" textFill="#a30be4" />
+   </children>
+</AnchorPane>

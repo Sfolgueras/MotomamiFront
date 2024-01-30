@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.motomami.Controllers.CambioContraController">
+   <children>
+      <Label layoutX="117.0" layoutY="183.0" text="CAMBIO CONTRASEÑA" textFill="#b01787">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idCorreo" layoutX="151.0" layoutY="265.0" promptText="correo" />
+      <PasswordField fx:id="idContra" layoutX="151.0" layoutY="333.0" promptText="nueva contraseña" />
+      <PasswordField fx:id="idRepetida" layoutX="152.0" layoutY="394.0" promptText="repetir contraseña" />
+      <Button fx:id="btnAceptar" layoutX="182.0" layoutY="485.0" mnemonicParsing="false" onAction="#cambiarContraseña" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ACEPTAR" textFill="#9202ff" />
+      <ImageView fitHeight="188.0" fitWidth="199.0" layoutX="126.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/2.png" />
+         </image></ImageView>
+      <Button fx:id="btnAtras" layoutX="24.0" layoutY="597.0" mnemonicParsing="false" onAction="#irPaginaInicio" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ATRÁS" textFill="#9202ff" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="450.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.motomami.Controllers.PartesController">
+   <children>
+      <Label layoutX="186.0" layoutY="104.0" text="PARTES" textFill="#b01787">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <ImageView fitHeight="187.0" fitWidth="180.0" layoutX="114.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="186.0" layoutY="208.0" prefHeight="17.0" prefWidth="66.0" text="Descripción" textAlignment="CENTER">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.0833333358168602" blue="0.0833333358168602" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2005847990512848" green="0.08954678475856781" blue="0.6447368264198303" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill></Label>
+      <DatePicker fx:id="idFecha" layoutX="132.0" layoutY="165.0" />
+      <TextArea fx:id="idDescripcion" layoutX="97.0" layoutY="247.0" prefHeight="179.0" prefWidth="247.0" />
+      <Label layoutX="204.0" layoutY="137.0" prefHeight="17.0" prefWidth="43.0" text="Fecha" textAlignment="CENTER">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.0833333358168602" blue="0.0833333358168602" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2005847990512848" green="0.08954678475856781" blue="0.6447368264198303" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="201.0" layoutY="436.0" prefHeight="17.0" prefWidth="37.0" text="Daños" textAlignment="CENTER">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.0833333358168602" blue="0.0833333358168602" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2005847990512848" green="0.08954678475856781" blue="0.6447368264198303" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <ChoiceBox fx:id="idDanyos" layoutX="145.0" layoutY="472.0" prefWidth="150.0" />
+      <Button fx:id="btnEntregar" layoutX="174.0" layoutY="523.0" mnemonicParsing="false" onAction="#entregarParte" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="ENTREGAR" textFill="#9202ff" />
+      <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/images.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnAtras" layoutX="14.0" layoutY="601.0" mnemonicParsing="false" onAction="#irPaginaMenu" prefHeight="25.0" prefWidth="91.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="ATRÁS" textFill="#9202ff" />
+   </children>
+</AnchorPane>

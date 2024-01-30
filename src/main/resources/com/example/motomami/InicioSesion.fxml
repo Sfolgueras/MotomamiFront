@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="650.0" prefWidth="450.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.motomami.Controllers.InicioSesionController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <AnchorPane prefHeight="639.0" prefWidth="471.0">
+         <children>
+            <Label layoutX="136.0" layoutY="155.0" text="INICIO SESIÓN" textAlignment="JUSTIFY" textFill="#b01787">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="idCorreo" layoutX="126.0" layoutY="194.0" promptText="correo" />
+            <Button fx:id="btnInicio" layoutX="146.0" layoutY="280.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="INICIAR SESIÓN" textFill="#9202ff" />
+            <Label layoutX="155.0" layoutY="357.0" text="¿No tiene cuenta?">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5480831861495972" green="0.13645224273204803" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button fx:id="btnRegistro" layoutX="146.0" layoutY="384.0" mnemonicParsing="false" onAction="#irPantallaRegistro" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="REGISTRATE" textFill="#9202ff" />
+            <Label layoutX="132.0" layoutY="421.0" text="¿Ha perdido su contraseña?">
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5480831861495972" green="0.13645224273204803" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Button fx:id="btnCambiar" layoutX="146.0" layoutY="448.0" mnemonicParsing="false" onAction="#cambioContraseña" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="CÁMBIALA" textFill="#9202ff" />
+            <PasswordField fx:id="idContra" layoutX="126.0" layoutY="237.0" promptText="contraseña" />
+            <ImageView fitHeight="180.0" fitWidth="187.0" layoutX="111.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/2.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnPrecios" layoutX="149.0" layoutY="555.0" mnemonicParsing="false" onAction="#irPaginaPrecios" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="PRECIOS" textFill="#9202ff" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
