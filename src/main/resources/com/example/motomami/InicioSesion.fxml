@@ -65,7 +65,7 @@
                   <Image url="@../../../Images/2.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnPrecios" layoutX="149.0" layoutY="555.0" mnemonicParsing="false" onAction="#irPaginaPrecios" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="PRECIOS" textFill="#9202ff" />
+            <Button fx:id="btnPrecios" layoutX="147.0" layoutY="522.0" mnemonicParsing="false" onAction="#irPaginaPrecios" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="PRECIOS" textFill="#9202ff" />
          </children>
       </AnchorPane>
    </children>

@@ -1,6 +1,7 @@
 package com.example.motomami.Controllers;
 
 import com.example.motomami.Utils.Auxiliar;
+import com.example.motomami.Utils.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,6 +58,8 @@ public class RegistroController implements Initializable {
 
     Alert alert;
 
+    DB db = new DB();
+
     private TextInputControl[] campos;
     String[] valores;
 
@@ -73,8 +76,28 @@ public class RegistroController implements Initializable {
         valores = new String[campos.length];
     }
 
+    protected void registrarUsuario() throws SQLException {
+        String nombre = idNombre.getText();
+        String apellidos = idApellidos.getText();
+        String dni = idDNI.getText();
+        String correo = idCorreo.getText();
+        String contrasenia = idContra.getText();
+        String direccion = idDireccion.getText();
+        String telefono = idTelefono.getText();
+        String carnet = idCarnet.getText();
+        String matricula = idMatricula.getText();
+        String fecha_nacimiento = String.valueOf(idFechaNacimiento.getValue());
+        String modelo = idModelo.getText();
+        String marca = idMarca.getText();
+        String tipoVehiculo = TipoVehiculo.getValue();
+        String sexo = Sexo.getValue();
+
+        db.registrarUsuario(nombre, apellidos, dni, correo, contrasenia, direccion, telefono,
+                carnet, matricula, modelo, marca, tipoVehiculo, sexo, fecha_nacimiento);
+    }
+
         @FXML
-        public void registrarse() throws IOException {
+        public void registrarse() throws IOException, SQLException {
             nombre = idNombre.getText();
             apellidos = idApellidos.getText();
             DNI = idDNI.getText();
@@ -113,10 +136,7 @@ public class RegistroController implements Initializable {
 
             if (a.comprobarEmail(correo) && a.validarDNI(DNI)){
                 if (a.espaciosEnContrasena(contra) && a.comprobarNumeros(nombre) && a.comprobarNumeros(apellidos)) {
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Registro Exitoso");
-                    alert.setContentText("Registrado de manera exitosa");
-                    alert.showAndWait();
+                    registrarUsuario();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/InicioSesion.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);

@@ -11,7 +11,7 @@ public class Aplicacion extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource("InicioSesion.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 450, 650);
-        stage.setTitle("¡Bienvenida a Motomami!");
+        stage.setTitle("Inicio Sesión");
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();

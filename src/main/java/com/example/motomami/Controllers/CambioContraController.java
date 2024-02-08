@@ -78,7 +78,7 @@ public class CambioContraController implements Initializable {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage helloStage = new Stage();
-        helloStage.setTitle("Registro");
+        helloStage.setTitle("Inicio Sesión");
         helloStage.setScene(scene);
         helloStage.show();
         Stage stage = (Stage) btnAtras.getScene().getWindow();
