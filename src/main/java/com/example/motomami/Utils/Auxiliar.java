@@ -1,8 +1,13 @@
 package com.example.motomami.Utils;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class Auxiliar {
@@ -32,7 +37,7 @@ public class Auxiliar {
     }
 
     public boolean comprobarEmail(String campo){
-        String expresionEmail = "^(.+)@gmail\\.com$";
+        String expresionEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         if (!campo.matches(expresionEmail)){
             Alert alertEmail = new Alert(Alert.AlertType.ERROR);
             alertEmail.setTitle("Error en el email");
@@ -85,5 +90,28 @@ public class Auxiliar {
             return false;
         }
         return true;
+    }
+
+    public void irPaginaCliente(Button btn) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaUserNormal.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage helloStage = new Stage();
+        helloStage.setTitle("Menú Principal");
+        helloStage.setScene(scene);
+        helloStage.show();
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
+    }
+    public void irPaginaTrabajador(Button btn) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaTrabajador.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage helloStage = new Stage();
+        helloStage.setTitle("Menú Principal");
+        helloStage.setScene(scene);
+        helloStage.show();
+        Stage stage = (Stage) btn.getScene().getWindow();
+        stage.close();
     }
 }

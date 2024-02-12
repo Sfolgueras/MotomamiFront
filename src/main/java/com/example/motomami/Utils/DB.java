@@ -1,10 +1,17 @@
 package com.example.motomami.Utils;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class DB {
+    Auxiliar a = new Auxiliar();
     //Metodo para iniciar la conexion con la base de datos
     public Connection createConnectionDB() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/motomamiFront","root","Sergino_PRO1");
@@ -58,7 +65,38 @@ public class DB {
         } else {
             mostrarMensajeError("Error", "Ocurrió un error al intentar registrar la usuaria.");
         }
-
+    }
+    public void tipoUsuario(String email, Button btn) throws SQLException, IOException {
+        Connection con = createConnectionDB();
+        String query = "SELECT tipo_usuario FROM mm_user WHERE email = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1,email);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            String tipo = rs.getString("tipo_usuario");
+            if (tipo.equals("customer")){
+                a.irPaginaCliente(btn);
+            } else if (tipo.equals("worker")){
+                a.irPaginaTrabajador(btn);
+            } else {
+                mostrarMensajeError("Error","Error en el inicio de sesión");
+            }
+        } else {
+            mostrarMensajeError("Error", "El usuario no existe");
+        }
+    }
+    public void cambioContrasenya(String contrasenaNueva, String email) throws SQLException {
+        Connection con = createConnectionDB();
+        String query = "UPDATE mm_user SET contrasenia = ? where email = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1,contrasenaNueva);
+        ps.setString(2,email);
+        int rs = ps.executeUpdate();
+        if (rs > 0){
+            mostrarMensaje("Cambio contraseña exitoso","La contraseña se ha cambiado correctamente");
+        } else{
+            mostrarMensajeError("Error","el usuario no existe");
+        }
     }
 
     public void mostrarMensaje(String titulo, String contenido){
@@ -73,4 +111,5 @@ public class DB {
         alert.setContentText(contenido);
         alert.showAndWait();
     }
+
 }

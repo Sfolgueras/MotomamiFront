@@ -1,6 +1,7 @@
 package com.example.motomami.Controllers;
 
 import com.example.motomami.Utils.Auxiliar;
+import com.example.motomami.Utils.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CambioContraController implements Initializable {
@@ -33,13 +35,14 @@ public class CambioContraController implements Initializable {
     String repetida;
 
     Auxiliar a = new Auxiliar();
+    DB db = new DB();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
     @FXML
-    public void cambiarContraseña() throws IOException {
+    public void cambiarContraseña() throws IOException, SQLException {
         correo = idCorreo.getText();
         contra = idContra.getText();
         repetida = idRepetida.getText();
@@ -49,11 +52,7 @@ public class CambioContraController implements Initializable {
         if (comprobacionContra && comprobacionCorreo) {
             if (contra.equals(repetida)) {
                 if (a.espaciosEnContrasena(contra)) {
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Cambio contraseña");
-                    alert.setHeaderText("¡Bien!");
-                    alert.setContentText("Cambio contraseña exitoso");
-                    alert.showAndWait();
+                    db.cambioContrasenya(contra,correo);
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/InicioSesion.fxml"));
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
@@ -64,11 +63,6 @@ public class CambioContraController implements Initializable {
                     Stage stage = (Stage) btnAceptar.getScene().getWindow();
                     stage.close();
                 }
-            } else {
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error cambiando contraseña");
-                alert.setContentText("Las contraseñas no coinciden");
-                alert.showAndWait();
             }
         }
     }

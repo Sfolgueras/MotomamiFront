@@ -53,15 +53,7 @@ public class InicioSesionController implements Initializable {
             if (emailValido) {
                 if (a.espaciosEnContrasena(contra)) {
                     if (inicioSesionExitoso) {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaUserNormal.fxml"));
-                        Parent root = loader.load();
-                        Scene scene = new Scene(root);
-                        Stage helloStage = new Stage();
-                        helloStage.setTitle("Menú Principal");
-                        helloStage.setScene(scene);
-                        helloStage.show();
-                        Stage stage = (Stage) btnInicio.getScene().getWindow();
-                        stage.close();
+                        db.tipoUsuario(correo,btnInicio);
                         db.closeConnectionBD(con);
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
