@@ -15,22 +15,17 @@ public class Auxiliar {
     public Auxiliar(){
 
     }
+    DB db = new DB();
     public boolean comprobarCampoVacio(String campo) {
         if (campo.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Hay campos vacios");
-            alert.setContentText("No pueden haber campos vacios");
-            alert.showAndWait();
+            db.mostrarMensajeError("Hay campos vacios","No pueden haber campos vacios");
             return false;
         }
         return true;
     }
     public boolean espaciosEnContrasena(String campo){
         if (campo.contains(" ")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Espacio en la contraseña");
-            alert.setContentText("No pueden haber espacios en la contraseña");
-            alert.showAndWait();
+            db.mostrarMensajeError("Espacio en la contraseña","No pueden haber espacios en la contraseña");
             return false;
         }
         return true;
@@ -39,10 +34,7 @@ public class Auxiliar {
     public boolean comprobarEmail(String campo){
         String expresionEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         if (!campo.matches(expresionEmail)){
-            Alert alertEmail = new Alert(Alert.AlertType.ERROR);
-            alertEmail.setTitle("Error en el email");
-            alertEmail.setContentText("Formato incorrecto en el email (ejemplo@gmail.com)");
-            alertEmail.showAndWait();
+            db.mostrarMensajeError("Error en el email","Formato incorrecto en el email (ejemplo@gmail.com)");
             return false;
         }
         return true;
@@ -50,10 +42,7 @@ public class Auxiliar {
     public boolean comprobarFechaAFuturo(DatePicker datePicker){
         LocalDate date = datePicker.getValue();
         if (date.isAfter(LocalDate.now())){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Fecha incorrecta");
-            alert.setContentText("No puedes poner una fecha a futuro ");
-            alert.showAndWait();
+            db.mostrarMensajeError("Fecha incorrecta","No puedes poner una fecha a futuro ");
             return false;
         }
         return true;
@@ -61,10 +50,7 @@ public class Auxiliar {
     public boolean comprobarNumeros(String campo){
         for(char c : campo.toCharArray()){
             if (Character.isDigit(c)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Numeros en campos invalidos");
-                alert.setContentText("No puedes poner numeros en el campo de nombre/apellidos" );
-                alert.showAndWait();
+                db.mostrarMensajeError("Numeros en campos invalidos","No puedes poner numeros en el campo de nombre/apellidos");
                 return false;
             }
         }
@@ -72,10 +58,7 @@ public class Auxiliar {
     }
     public Boolean validarDNI(String s) {
         if (s.length() != 9) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Longitud incorrecta");
-            alert.setContentText("El DNI debe tener 9 caracteres.");
-            alert.showAndWait();
+            db.mostrarMensajeError("Longitud incorrecta","El DNI debe tener 9 caracteres.");
             return false;
         }
         int numDNI = Integer.parseInt(s.substring(0, 8));
@@ -83,10 +66,7 @@ public class Auxiliar {
         String[] letrasDNI = {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
         int posicio = numDNI % 23;
         if (!letra.equalsIgnoreCase((letrasDNI[posicio]))){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("DNI incorrecto");
-            alert.setContentText("El dni no existe");
-            alert.showAndWait();
+            db.mostrarMensajeError("DNI incorrecto","El dni no existe");
             return false;
         }
         return true;
