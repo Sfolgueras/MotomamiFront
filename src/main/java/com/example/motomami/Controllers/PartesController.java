@@ -1,6 +1,7 @@
 package com.example.motomami.Controllers;
 
 import com.example.motomami.Utils.Auxiliar;
+import com.example.motomami.Utils.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,9 +28,9 @@ public class PartesController implements Initializable {
    private ChoiceBox<String> idDanyos;
 
    Auxiliar a = new Auxiliar();
+   DB db = new DB();
 
    String texto;
-    Alert alert;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,11 +45,7 @@ public class PartesController implements Initializable {
         texto = idDescripcion.getText();
         if (a.comprobarCampoVacio(texto)) {
             if (a.comprobarFechaAFuturo(idFecha)) {
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Parte enviado");
-                alert.setHeaderText("¡Bien!");
-                alert.setContentText("El parte se ha generado de manera existosa");
-                alert.showAndWait();
+                db.mostrarMensaje("Parte enviado","El parte se ha generado de manera existosa");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaUserNormal.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
@@ -73,6 +70,4 @@ public class PartesController implements Initializable {
        Stage stage = (Stage) btnEntregar.getScene().getWindow();
        stage.close();
    }
-
-
 }

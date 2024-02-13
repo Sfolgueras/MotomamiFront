@@ -99,6 +99,19 @@ public class DB {
         }
     }
 
+    public boolean emailYaRegistrado(String email) throws SQLException {
+        Connection con = createConnectionDB();
+        String query = "SELECT * FROM mm_user WHERE email = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1,email);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()){
+            mostrarMensajeError("Correo ya registrado","El correo introducido ya es usado en alguna otra cuenta");
+            return false;
+        }
+        return true;
+    }
+
     public void mostrarMensaje(String titulo, String contenido){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);

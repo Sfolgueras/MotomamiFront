@@ -56,10 +56,7 @@ public class InicioSesionController implements Initializable {
                         db.tipoUsuario(correo,btnInicio);
                         db.closeConnectionBD(con);
                     } else {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Inicio sesion fallido");
-                        alert.setContentText("La usuaria o la contraseña son incorrectos");
-                        alert.showAndWait();
+                        db.mostrarMensajeError("Inicio sesion fallido","La usuaria o la contraseña son incorrectos");
                         db.closeConnectionBD(con);
                     }
                 }

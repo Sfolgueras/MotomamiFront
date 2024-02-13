@@ -48,7 +48,6 @@ public class CambioContraController implements Initializable {
         repetida = idRepetida.getText();
         boolean comprobacionCorreo = a.comprobarEmail(correo);
         boolean comprobacionContra = a.comprobarCampoVacio(contra);
-        Alert alert;
         if (comprobacionContra && comprobacionCorreo) {
             if (contra.equals(repetida)) {
                 if (a.espaciosEnContrasena(contra)) {

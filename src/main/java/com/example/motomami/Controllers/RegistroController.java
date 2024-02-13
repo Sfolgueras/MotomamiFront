@@ -55,11 +55,7 @@ public class RegistroController implements Initializable {
     String DNI;
     String correo;
     String contra;
-
-    Alert alert;
-
     DB db = new DB();
-
     private TextInputControl[] campos;
     String[] valores;
 
@@ -110,42 +106,35 @@ public class RegistroController implements Initializable {
                 }
             }
             if (Sexo.getValue().equals("hombre")){
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("MALDITO HOMBRE");
-                alert.setContentText("NO PUEDES ENTRAR EN ESTA APLICACIÓN MACHITO");
-                alert.showAndWait();
+                db.mostrarMensajeError("MALDITO HOMBRE","SI TIENES PITO NO PUEDES ENTRAR");
                 return;
             }
             LocalDate fechaNacimiento = idFechaNacimiento.getValue();
             int anyoNacimiento = fechaNacimiento.getYear();
             int anyoActual = LocalDate.now().getYear();
             if(anyoActual - anyoNacimiento < 16){
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Edad insuficiente");
-                alert.setContentText("No tienes la edad suficiente para tener ningún permiso de conducción");
-                alert.showAndWait();
+                db.mostrarMensajeError("Edad insuficiente","No tienes la edad suficiente para tener ningún permiso de conducción");
                 return;
             }
             if (anyoActual - anyoNacimiento < 18 && TipoVehiculo.getValue().equals("moto") || anyoActual - anyoNacimiento < 18 && TipoVehiculo.getValue().equals("coche") ||anyoActual - anyoNacimiento < 18 && TipoVehiculo.getValue().equals("furgoneta")){
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Edad insuficiente");
-                alert.setContentText("No tienes la edad suficiente para este tipo de vehiculo");
-                alert.showAndWait();
+                db.mostrarMensajeError("Edad insuficiente","No tienes la edad suficiente para este tipo de vehiculo");
                 return;
             }
 
             if (a.comprobarEmail(correo) && a.validarDNI(DNI)){
                 if (a.espaciosEnContrasena(contra) && a.comprobarNumeros(nombre) && a.comprobarNumeros(apellidos)) {
-                    registrarUsuario();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/InicioSesion.fxml"));
-                    Parent root = loader.load();
-                    Scene scene = new Scene(root);
-                    Stage helloStage = new Stage();
-                    helloStage.setTitle("Cambio Contraseña");
-                    helloStage.setScene(scene);
-                    helloStage.show();
-                    Stage stage = (Stage) btnEntregar.getScene().getWindow();
-                    stage.close();
+                    if (db.emailYaRegistrado(correo)) {
+                        registrarUsuario();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/InicioSesion.fxml"));
+                        Parent root = loader.load();
+                        Scene scene = new Scene(root);
+                        Stage helloStage = new Stage();
+                        helloStage.setTitle("Cambio Contraseña");
+                        helloStage.setScene(scene);
+                        helloStage.show();
+                        Stage stage = (Stage) btnEntregar.getScene().getWindow();
+                        stage.close();
+                    }
                 }
             }
         }
