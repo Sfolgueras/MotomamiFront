@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.sql.*;
 
 public class DB {
-    Auxiliar a = new Auxiliar();
     //Metodo para iniciar la conexion con la base de datos
     public Connection createConnectionDB() throws SQLException {
         return DriverManager.getConnection("jdbc:mysql://localhost:3306/motomamiFront","root","Sergino_PRO1");
@@ -75,9 +74,25 @@ public class DB {
         if (rs.next()) {
             String tipo = rs.getString("tipo_usuario");
             if (tipo.equals("customer")){
-                a.irPaginaCliente(btn);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaUserNormal.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage helloStage = new Stage();
+                helloStage.setTitle("Menú Principal");
+                helloStage.setScene(scene);
+                helloStage.show();
+                Stage stage = (Stage) btn.getScene().getWindow();
+                stage.close();
             } else if (tipo.equals("worker")){
-                a.irPaginaTrabajador(btn);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaTrabajador.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage helloStage = new Stage();
+                helloStage.setTitle("Menú Principal");
+                helloStage.setScene(scene);
+                helloStage.show();
+                Stage stage = (Stage) btn.getScene().getWindow();
+                stage.close();
             } else {
                 mostrarMensajeError("Error","Error en el inicio de sesión");
             }

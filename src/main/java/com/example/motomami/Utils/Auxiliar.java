@@ -71,27 +71,4 @@ public class Auxiliar {
         }
         return true;
     }
-
-    public void irPaginaCliente(Button btn) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaUserNormal.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage helloStage = new Stage();
-        helloStage.setTitle("Menú Principal");
-        helloStage.setScene(scene);
-        helloStage.show();
-        Stage stage = (Stage) btn.getScene().getWindow();
-        stage.close();
-    }
-    public void irPaginaTrabajador(Button btn) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/PaginaTrabajador.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage helloStage = new Stage();
-        helloStage.setTitle("Menú Principal");
-        helloStage.setScene(scene);
-        helloStage.show();
-        Stage stage = (Stage) btn.getScene().getWindow();
-        stage.close();
-    }
 }
