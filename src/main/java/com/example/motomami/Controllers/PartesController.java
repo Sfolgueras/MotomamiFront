@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -41,8 +43,9 @@ public class PartesController implements Initializable {
 
     }
    @FXML
-    public void entregarParte() throws IOException {
+    public void entregarParte() throws IOException, SQLException {
         texto = idDescripcion.getText();
+        db.insertarParte(Date.valueOf(idFecha.getValue()),texto,idDanyos.getValue());
         if (a.comprobarCampoVacio(texto)) {
             if (a.comprobarFechaAFuturo(idFecha)) {
                 db.mostrarMensaje("Parte enviado","El parte se ha generado de manera existosa");

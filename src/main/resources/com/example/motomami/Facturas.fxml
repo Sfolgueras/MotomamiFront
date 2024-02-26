@@ -17,18 +17,13 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView layoutX="125.0" layoutY="225.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnAtras" layoutX="17.0" layoutY="594.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ATRAS" textFill="#9202ff" />
+      <Button fx:id="btnAtras" layoutX="17.0" layoutY="594.0" mnemonicParsing="false" onAction="#irPaginaAtras" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="ATRAS" textFill="#9202ff" />
       <Button fx:id="btnDescargar" layoutX="172.0" layoutY="452.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: pink; -fx-background-radius: 20;" text="DESCARGAR" textFill="#9202ff" />
       <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="393.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Images/images.png" />
          </image>
       </ImageView>
+      <TextArea layoutX="126.0" layoutY="193.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

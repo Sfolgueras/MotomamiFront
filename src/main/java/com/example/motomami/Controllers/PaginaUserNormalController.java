@@ -17,6 +17,8 @@ public class PaginaUserNormalController implements Initializable {
     private Button btnPartes;
     @FXML
     private Button btnEstado;
+    @FXML
+    private Button btnFacturas;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,6 +46,18 @@ public class PaginaUserNormalController implements Initializable {
         helloStage.setScene(scene);
         helloStage.show();
         Stage stage = (Stage) btnEstado.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void irPantallaFactura() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/motomami/Facturas.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage helloStage = new Stage();
+        helloStage.setTitle("Partes");
+        helloStage.setScene(scene);
+        helloStage.show();
+        Stage stage = (Stage) btnFacturas.getScene().getWindow();
         stage.close();
     }
 }

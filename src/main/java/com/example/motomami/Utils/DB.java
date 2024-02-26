@@ -127,6 +127,80 @@ public class DB {
         return true;
     }
 
+
+    public void insertarParte(Date fecha, String descripcion, String danios) throws SQLException {
+        Connection con = createConnectionDB(); // Suponiendo que tienes un método createConnectionDB() que devuelve una conexión a la base de datos
+        String query = "INSERT INTO mm_part (fecha, descripcion, daños) VALUES (?, ?, ?)";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setDate(1, new java.sql.Date(fecha.getTime())); // Convertir el objeto Date de Java a java.sql.Date
+        ps.setString(2, descripcion);
+        ps.setString(3, danios);
+
+        ps.executeUpdate();
+
+        ps.close();
+        con.close();
+    }
+
+    public String buscarUsuario(String apellidos, String dni) throws SQLException {
+        StringBuilder resultado = new StringBuilder();
+        Connection con = createConnectionDB(); // Suponiendo que tienes un método createConnectionDB() que devuelve una conexión a la base de datos
+        String query = "SELECT nombre, apellidos, fecha_nacimiento, direccion, telefono, dni FROM mm_user WHERE apellidos = ? AND dni = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, apellidos);
+        ps.setString(2, dni);
+        ResultSet rs = ps.executeQuery();
+
+        // Procesar los resultados
+        while (rs.next()) {
+            String nombre = rs.getString("nombre");
+            String apellidosUsuario = rs.getString("apellidos");
+            String fechaNacimiento = rs.getString("fecha_nacimiento");
+            String direccion = rs.getString("direccion");
+            int telefono = rs.getInt("telefono");
+            String dniUsuario = rs.getString("dni");
+
+            // Agregar los campos del usuario al resultado
+            resultado.append("Nombre: ").append(nombre).append("\n");
+            resultado.append("Apellidos: ").append(apellidosUsuario).append("\n");
+            resultado.append("Fecha de nacimiento: ").append(fechaNacimiento).append("\n");
+            resultado.append("Dirección: ").append(direccion).append("\n");
+            resultado.append("Teléfono: ").append(telefono).append("\n");
+            resultado.append("DNI: ").append(dniUsuario).append("\n");
+        }
+        // Cerrar recursos
+        rs.close();
+        ps.close();
+        con.close();
+        return resultado.toString();
+    }
+    public void generacionEstado(int id, String descripcion) throws SQLException {
+        Connection con = createConnectionDB();
+        String query = "INSERT INTO mm_state (id, descripcion) VALUES (?, ?)";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, id);
+        ps.setString(2, descripcion);
+        ps.executeUpdate();
+        ps.close();
+        con.close();
+    }
+
+    public String buscarEstado(int id) throws SQLException {
+        String estadoEncontrado = null;
+        Connection con = createConnectionDB(); // Suponiendo que tienes un método createConnectionDB() que devuelve una conexión a la base de datos
+        String query = "SELECT descripcion FROM mm_state WHERE id = ? ";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            estadoEncontrado = rs.getString("descripcion");
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        return estadoEncontrado;
+    }
+
     public void mostrarMensaje(String titulo, String contenido){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
@@ -139,5 +213,4 @@ public class DB {
         alert.setContentText(contenido);
         alert.showAndWait();
     }
-
 }

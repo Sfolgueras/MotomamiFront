@@ -1,5 +1,7 @@
 package com.example.motomami.Controllers;
 
+import com.example.motomami.Utils.Auxiliar;
+import com.example.motomami.Utils.DB;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class EstadoController implements Initializable {
@@ -19,10 +22,12 @@ public class EstadoController implements Initializable {
     private TextField id;
     @FXML
     private TextArea idDescripcion;
-    @FXML
-    private Button btnBuscar;
+
     @FXML
     private Button btnAtras;
+
+    Auxiliar a = new Auxiliar();
+    DB db = new DB();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,4 +45,13 @@ public class EstadoController implements Initializable {
         Stage stage = (Stage) btnAtras.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    public void buscarEstado() throws SQLException {
+        if (a.comprobarCampoVacio(id.getText())){
+           String resultado = db.buscarEstado(Integer.parseInt(id.getText()));
+           idDescripcion.setText(resultado);
+        }
+    }
+
 }
